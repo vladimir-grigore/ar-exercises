@@ -5,7 +5,10 @@ class Store < ActiveRecord::Base
   validate :apparel
 
   def apparel
-    self.mens_apparel || self.womens_apparel
+    unless self.mens_apparel || self.womens_apparel
+      errors.add(:mens_apparel, "Must either sell mens or womens apparrel")
+      errors.add(:womens_apparel, "Must either sell mens or womens apparrel")
+    end
   end
   
 end
