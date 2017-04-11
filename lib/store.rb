@@ -4,10 +4,12 @@ class Store < ActiveRecord::Base
   validates_numericality_of :annual_revenue, greater_than: 0, only_integer: true
   validate :apparel
 
+  private
+
   def apparel
     unless self.mens_apparel || self.womens_apparel
-      errors.add(:mens_apparel, "Must either sell mens or womens apparrel")
-      errors.add(:womens_apparel, "Must either sell mens or womens apparrel")
+      errors.add(:mens_apparel, "must either sell mens or womens apparrel")
+      errors.add(:womens_apparel, "must either sell mens or womens apparrel")
     end
   end
   
