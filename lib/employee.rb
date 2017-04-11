@@ -4,7 +4,7 @@ class Employee < ActiveRecord::Base
   validates :last_name, presence: true
   validates_numericality_of :hourly_rate, greater_than: 40, less_than: 200
   validates :store_id, presence: true
-  before_create :assign_password
+  after_create :assign_password
 
   private 
 

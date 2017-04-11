@@ -11,4 +11,4 @@ puts "Exercise 8"
 puts "----------"
 
 employee = @store1.employees.create(first_name: "Amy", last_name: "Wong", hourly_rate: 198)
-puts employee.password
+puts "Employee password is: #{employee.password}"
